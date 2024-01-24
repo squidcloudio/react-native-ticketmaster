@@ -119,8 +119,9 @@ const MyPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const onPress = () => {
-      // On iOS, the Tickets view is a native modal, so we show it and then reset the state. This ensures that
-      // pressing the button will display the modal again after it's been dismissed.
+      // On iOS, the Tickets view is a native modal, so we show it and then reset the state.
+      // This ensures that pressing the button will display the modal again after it's been
+      // dismissed.
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
@@ -142,7 +143,7 @@ const MyPage = () => {
 }
 ```
 
-### PurchaseSdk
+###$# PurchaseSdk
 This component uses the Ticketmaster Retail SDK to start a [purchase](https://ignite.ticketmaster.com/docs/purchase-overview) flow. Similar to the `TicketSdk` above, the behavior of the component varies between iOS and Android. Follow the guidance from the `TicketsSdk` to properly render the component, with one exception - the component takes an `eventId` as a prop.
 
 ```tsx
@@ -153,7 +154,7 @@ return (
 );
 ```
 
-### PrePurchaseSdk
+#### PrePurchaseSdk
 This component uses the Ticketmaster Retail SDK to start a [prepurchase](https://ignite.ticketmaster.com/docs/pre-purchase-overview) flow. Similar to the `TicketSdk` and `PurchaseSdk` above, the behavior of the component varies between iOS and Android. Follow the guidance from the `TicketsSdk` to properly render the component, with one exception - the component takes an `attractionId` as a prop.
 
 ```tsx
