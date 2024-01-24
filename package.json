@@ -1,0 +1,46 @@
+{
+  "name": "react-native-ticketmaster",
+  "version": "0.0.1",
+  "description": "React Native wrapper for the Ticketmaster Ignite SDK",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "scripts": {
+    "clean": "find . \\( -name \"node_modules\" -o -name \"lib\" \\) -type d -exec rm -rf {} +",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bob build"
+  },
+  "author": "Colin Dunn <colin@squid.cloud>",
+  "license": "MIT",
+  "homepage": "https://github.com/squidcloudio/react-native-ticketmaster#readme",
+  "peerDependencies": {
+    "expo": ">=48.0.0",
+    "react-native": ">=0.65.0 <1.0.x"
+  },
+  "peerDependenciesMeta": {
+    "expo": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "react-native-builder-bob": "^0.23.1",
+    "typescript": "^5.3.3"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  }
+}
