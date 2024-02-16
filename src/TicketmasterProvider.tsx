@@ -4,6 +4,8 @@ import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
 export type TicketmasterContextType = {
   login: () => Promise<void>;
   logout: () => Promise<void>;
+  getMemberInfo: () => Promise<Record<string, any> | null>;
+  getIsLoggedIn: () => Promise<boolean>;
   memberInfo: Record<string, any> | null;
   isLoggedIn: boolean;
   getToken: () => Promise<string | null>;
@@ -29,6 +31,8 @@ type ChangeEvent =
 export const TicketmasterContext = createContext<TicketmasterContextType>({
   login: async () => {},
   logout: async () => {},
+  getIsLoggedIn: async () => false,
+  getMemberInfo: async () => null,
   isLoggedIn: false,
   memberInfo: null,
   getToken: async () => null,
@@ -206,7 +210,7 @@ export const TicketmasterProvider = ({
 
   return (
     <TicketmasterContext.Provider
-      value={{ login, logout, refreshToken, getToken, isLoggedIn, memberInfo }}
+      value={{ login, logout, refreshToken, getToken, getMemberInfo, getIsLoggedIn, isLoggedIn, memberInfo }}
     >
       {children}
     </TicketmasterContext.Provider>

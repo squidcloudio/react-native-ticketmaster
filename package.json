@@ -1,6 +1,6 @@
 {
-  "name": "react-native-ticketmaster",
-  "version": "0.0.1",
+  "name": "@squidcloud/react-native-ticketmaster",
+  "version": "0.0.2",
   "description": "React Native wrapper for the Ticketmaster Ignite SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -10,7 +10,8 @@
   "scripts": {
     "clean": "find . \\( -name \"node_modules\" -o -name \"lib\" \\) -type d -exec rm -rf {} +",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bob build"
+    "build": "bob build",
+    "publish": "npm run build && npm publish --access public"
   },
   "author": "Colin Dunn <colin@squid.cloud>",
   "license": "MIT",
