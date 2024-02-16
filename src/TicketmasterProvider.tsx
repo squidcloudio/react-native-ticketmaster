@@ -105,7 +105,7 @@ export const TicketmasterProvider = ({
   }, []);
 
   const login = async (): Promise<void> => {
-    return new Promise(async (resolve, reject) => {
+    return new Promise<void>(async (resolve, reject) => {
       if (Platform.OS === 'android') {
         AccountsSDK.login((resultCode: any) => {
           console.log('Login result code: ', resultCode);
@@ -158,7 +158,7 @@ export const TicketmasterProvider = ({
     let result;
     try {
       result = await AccountsSDK.getMemberInfo();
-      return result;
+      return Platform.OS === 'android' ? JSON.parse(result) : result;
     } catch (e: any) {
       if (e.message.includes('User not logged in')) {
         return null;
