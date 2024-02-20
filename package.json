@@ -1,6 +1,6 @@
 {
   "name": "@squidcloud/react-native-ticketmaster",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Native wrapper for the Ticketmaster Ignite SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.48",
+    "prettier": "^3.2.5",
     "react-native-builder-bob": "^0.23.1",
     "typescript": "^5.3.3"
   },
