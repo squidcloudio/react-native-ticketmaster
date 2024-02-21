@@ -10,6 +10,8 @@ export type TicketmasterContextType = {
   isLoggedIn: boolean;
   getToken: () => Promise<string | null>;
   refreshToken: () => Promise<string | null>;
+  presentPurchase: (eventId: string) => void;
+  presentPrePurchase: (attractionId: string) => void;
 };
 
 type ChangeEvent =
@@ -37,6 +39,8 @@ export const TicketmasterContext = createContext<TicketmasterContextType>({
   memberInfo: null,
   getToken: async () => null,
   refreshToken: async () => null,
+  presentPurchase: () => {},
+  presentPrePurchase: () => {},
 });
 
 export const TicketmasterProvider = ({
@@ -103,6 +107,26 @@ export const TicketmasterProvider = ({
       subscription.remove();
     };
   }, []);
+
+  const presentPurchase = (eventId: string) => {
+    if (Platform.OS === "android") {
+      AccountsSDK.presentPurchase(eventId);
+    } else {
+      throw new Error(
+        `presentPurchase is not currently supported on ${Platform.OS}`,
+      );
+    }
+  };
+
+  const presentPrePurchase = (attractionId: string) => {
+    if (Platform.OS === "android") {
+      AccountsSDK.presentPrePurchase(attractionId);
+    } else {
+      throw new Error(
+        `presentPurchase is not currently supported on ${Platform.OS}`,
+      );
+    }
+  };
 
   const login = async (): Promise<void> => {
     return new Promise<void>(async (resolve, reject) => {
@@ -219,6 +243,8 @@ export const TicketmasterProvider = ({
         getIsLoggedIn,
         isLoggedIn,
         memberInfo,
+        presentPurchase,
+        presentPrePurchase,
       }}
     >
       {children}

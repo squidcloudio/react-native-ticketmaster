@@ -25,13 +25,13 @@ public class PurchaseSdkViewController: UIViewController, SendEventIdDelegate {
                                                           region: .US)
     
     let branding = TMAuthentication.Branding(displayName: Config.shared.get(for: "clientName"),
-                                             backgroundColor: .init(hexString: "#026cdf"),
+                                             backgroundColor: .init(hexString: "#000000"),
                                              theme: .light)
     
     let brandedServiceSettings = TMAuthentication.BrandedServiceSettings(tmxSettings: tmxServiceSettings,
                                                                          branding: branding)
 
-    TMPurchase.shared.brandColor = UIColor(red: 0.19, green: 0.02, blue: 0.16, alpha: 1.00)
+    TMPurchase.shared.brandColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00)
     TMPurchase.shared.configure(apiKey: apiKey, region: .US) {
     purchaseConfigured in
 

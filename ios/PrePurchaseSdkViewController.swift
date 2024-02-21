@@ -26,13 +26,13 @@ public class PrePurchaseSdkViewController: UIViewController, SendAttractionIdDel
                                                           region: .US)
     
     let branding = TMAuthentication.Branding(displayName: Config.shared.get(for: "clientName"),
-                                             backgroundColor: .init(hexString: "#026cdf"),
+                                             backgroundColor: .init(hexString: "#000000"),
                                              theme: .light)
     
     let brandedServiceSettings = TMAuthentication.BrandedServiceSettings(tmxSettings: tmxServiceSettings,
                                                                          branding: branding)
 
-    TMPrePurchase.shared.brandColor = UIColor(red: 0.19, green: 0.02, blue: 0.16, alpha: 1.00)
+    TMPrePurchase.shared.brandColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00)
     TMPrePurchase.shared.configure(apiKey: apiKey, region: .US) {
     prepurchaseConfigured in
 

@@ -33,6 +33,12 @@ class TicketsFragment() : Fragment() {
             darkColors(primary = Color(color), primaryVariant = Color(color), secondary = Color(color))
         )
 
+    private fun createAuthColors(color: Int): TMAuthentication.ColorTheme =
+        TMAuthentication.ColorTheme(
+            lightColors(primary = Color(color), primaryVariant = Color(color), secondary = Color(color)),
+            darkColors(primary = Color(color), primaryVariant = Color(color), secondary = Color(color))
+        )
+
     private suspend fun validateAuthToken(authentication: TMAuthentication): Map<AuthSource, String> {
         val tokenMap = mutableMapOf<AuthSource, String>()
         AuthSource.values().forEach {
@@ -68,7 +74,7 @@ class TicketsFragment() : Fragment() {
             val authentication = TMAuthentication.Builder()
                 .apiKey(Config.get("apiKey"))
                 .clientName(Config.get("clientName")) // Team name to be displayed
-                .colors(TMAuthentication.ColorTheme())
+                .colors(createAuthColors(android.graphics.Color.parseColor("#000000")))
                 .environment(TMXDeploymentEnvironment.Production) // Environment that the SDK will use. Default is Production
                 .region(TMXDeploymentRegion.US) // Region that the SDK will use. Default is US
                 .build(this@TicketsFragment.requireActivity())
@@ -78,7 +84,7 @@ class TicketsFragment() : Fragment() {
                 .Builder()
                 .authenticationSDKClient(authentication) //Authentication object
                 //Optional value to define the colors for the Tickets page
-                .colors(createTicketsColors(android.graphics.Color.parseColor("#231F20")))
+                .colors(createTicketsColors(android.graphics.Color.parseColor("#000000")))
                 //Function that generates a TicketsSDKClient object
                 .build(this@TicketsFragment.requireActivity())
                 .apply {
