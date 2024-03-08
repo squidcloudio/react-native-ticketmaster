@@ -8,11 +8,11 @@ Pod::Spec.new do |s|
 
   s.authors      = package['author']
   s.homepage     = package['homepage']
-  s.platform     = :ios, "14.0"
+  s.platform     = :ios, "15.0"
 
   s.source       = { :git => "https://github.com/squidcloudio/react-native-ticketmaster.git", :tag => "{s.version}" }
   s.source_files  = "ios/**/*.{h,m,swift}"
 
   s.dependency "React-Core"
-  s.dependency "TM-Ignite-Test"
+  s.dependency "TM-Ignite"
 end
