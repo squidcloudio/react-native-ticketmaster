@@ -12,6 +12,12 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/squidcloudio/react-native-ticketmaster.git", :tag => "{s.version}" }
   s.source_files  = "ios/**/*.{h,m,swift}"
+  s.static_framework = true
+
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'YES',
+    'SWIFT_COMPILATION_MODE' => 'wholemodule',
+  }
 
   s.dependency "React-Core"
   s.dependency "TM-Ignite"

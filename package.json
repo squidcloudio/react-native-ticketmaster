@@ -1,6 +1,6 @@
 {
   "name": "@squidcloud/react-native-ticketmaster",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "React Native wrapper for the Ticketmaster Ignite SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
