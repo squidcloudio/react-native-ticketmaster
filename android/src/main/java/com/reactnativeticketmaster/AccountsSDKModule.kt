@@ -181,10 +181,10 @@ class AccountsSDKModule(reactContext: ReactApplicationContext) : ReactContextBas
                     hostAccessToken,
                     mfxAccessToken
             )
-            if (!resHostAccessToken.isNullOrEmpty()) {
-                promise.resolve(resHostAccessToken)
-            } else if (!resArchticsAccessToken.isNullOrEmpty()) {
+            if (!resArchticsAccessToken.isNullOrEmpty()) {
                 promise.resolve(resArchticsAccessToken)
+            } else if (!resHostAccessToken.isNullOrEmpty()) {
+                promise.resolve(resHostAccessToken)
             } else if (!resMfxAccessToken.isNullOrEmpty()) {
                 promise.resolve(resMfxAccessToken)
             } else {
